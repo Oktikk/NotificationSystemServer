@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using PraktykiServer.Data;
-using PraktykiServer.Models;
+using NotificationSystemServer.Data;
+using NotificationSystemServer.Models;
 
-namespace PraktykiServer.Controllers
+namespace NotificationSystemServer.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -19,24 +19,24 @@ namespace PraktykiServer.Controllers
             await _context.Clients.ToListAsync();
 
         [HttpPost]
-        public IActionResult Connect([FromBody] GuidData guidData)
+        public IActionResult Connect([FromBody] TokenData TokenData)
         {
-            var existingClient = _context.Clients.FirstOrDefault(c => c.guid == guidData.Guid);
+            var existingClient = _context.Clients.FirstOrDefault(c => c.FCMToken == TokenData.FCMToken);
             if (existingClient != null)
             {
                 return Ok();
             }
 
-            var newClient = new Client { guid = guidData.Guid };
+            var newClient = new Client { FCMToken = TokenData.FCMToken };
             _context.Clients.Add(newClient);
             _context.SaveChanges();
 
             return Ok();
         }
 
-        public class GuidData
+        public class TokenData
         {
-            public Guid Guid { get; set; }
+            public String FCMToken { get; set; }
         }
     }
 

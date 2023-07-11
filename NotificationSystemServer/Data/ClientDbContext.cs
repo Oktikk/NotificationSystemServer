@@ -1,14 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PraktykiServer.Models;
+using NotificationSystemServer.Models;
 
-namespace PraktykiServer.Data
+namespace NotificationSystemServer.Data
 {
     public class ClientDbContext : DbContext
     {
+
+
         public ClientDbContext(DbContextOptions<ClientDbContext> options) : base(options)
         {
-
+ 
         }
+
 
         public DbSet<Client> Clients { get; set; }
     }

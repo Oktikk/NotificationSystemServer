@@ -1,9 +1,8 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace PraktykiServer.Data.Migrations
+namespace NotificationSystemServer.Data.Migrations
 {
     /// <inheritdoc />
     public partial class CreateDatabase : Migration
@@ -17,7 +16,7 @@ namespace PraktykiServer.Data.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    guid = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    FCMToken = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

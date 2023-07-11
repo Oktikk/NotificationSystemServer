@@ -1,8 +1,9 @@
-using PraktykiServer.Data;
+using NotificationSystemServer.Data;
 using Microsoft.EntityFrameworkCore;
-using PraktykiServer.Workers;
+using NotificationSystemServer.Workers;
+using Google;
 
-namespace PraktykiServer
+namespace NotificationSystemServer
 {
     public class Program
     {
@@ -20,7 +21,12 @@ namespace PraktykiServer
             builder.Services.AddDbContext<ClientDbContext>(o =>
                 o.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer")));
 
-            builder.Services.AddHostedService<NotificationWorker>();
+            builder.Services.AddScoped<NotificationWorker>();
+            builder.Services.AddHostedService(provider =>
+            {
+                var scopedProvider = provider.CreateScope().ServiceProvider;
+                return scopedProvider.GetRequiredService<NotificationWorker>();
+            });
 
             var app = builder.Build();
 

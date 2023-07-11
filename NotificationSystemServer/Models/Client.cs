@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace PraktykiServer.Models
+namespace NotificationSystemServer.Models
 {
     public class Client
     {
         [Required]
         public int ID { get; set; }
         [Required]
-        public Guid guid { get; set; }
+        public string FCMToken { get; set; }
     }
 }

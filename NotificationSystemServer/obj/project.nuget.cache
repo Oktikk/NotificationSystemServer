@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Y69rQLUICjPmIvIQf3rUGoxV/W3MmagBqZ8Y630cU/ujAOIP0a0qZ04oXcoOw4SclEml9vB+CvmiK192IgIlfg==",
+  "dgSpecHash": "N9mpRTThIFgDJFcHrQKN2Kmi/LRLhAG0ckK4PuubNF2jYjFi2Y69CwA4fnJuc2iQpZxeqjUMPrgRY4K0o2gXRw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\oktik\\source\\repos\\Programowanie3\\PraktykiServer\\NotificationSystemServer\\NotificationSystemServer.csproj",
+  "projectFilePath": "C:\\Users\\oktik\\source\\repos\\NotificationSystem\\NotificationSystemServer\\NotificationSystemServer\\NotificationSystemServer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\oktik\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\oktik\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

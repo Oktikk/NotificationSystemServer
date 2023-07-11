@@ -4037,11 +4037,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\oktik\\source\\repos\\Programowanie3\\PraktykiServer\\NotificationSystemServer\\NotificationSystemServer.csproj",
+      "projectUniqueName": "C:\\Users\\oktik\\source\\repos\\NotificationSystem\\NotificationSystemServer\\NotificationSystemServer\\NotificationSystemServer.csproj",
       "projectName": "NotificationSystemServer",
-      "projectPath": "C:\\Users\\oktik\\source\\repos\\Programowanie3\\PraktykiServer\\NotificationSystemServer\\NotificationSystemServer.csproj",
+      "projectPath": "C:\\Users\\oktik\\source\\repos\\NotificationSystem\\NotificationSystemServer\\NotificationSystemServer\\NotificationSystemServer.csproj",
       "packagesPath": "C:\\Users\\oktik\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\oktik\\source\\repos\\Programowanie3\\PraktykiServer\\NotificationSystemServer\\obj\\",
+      "outputPath": "C:\\Users\\oktik\\source\\repos\\NotificationSystem\\NotificationSystemServer\\NotificationSystemServer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\oktik\\AppData\\Roaming\\NuGet\\NuGet.Config",
