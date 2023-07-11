@@ -14,10 +14,6 @@ namespace NotificationSystemServer.Controllers
 
         public ConnectController(ClientDbContext context) => _context = context;
 
-        [HttpGet]
-        public async Task<IEnumerable<Client>> Get() =>
-            await _context.Clients.ToListAsync();
-
         [HttpPost]
         public IActionResult Connect([FromBody] TokenData TokenData)
         {
@@ -36,7 +32,7 @@ namespace NotificationSystemServer.Controllers
 
         public class TokenData
         {
-            public String FCMToken { get; set; }
+            public string FCMToken { get; set; }
         }
     }
 
