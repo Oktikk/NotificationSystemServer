@@ -1,12 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace NotificationSystemServer.Models
+﻿namespace NotificationSystemServer.Models
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class Client
     {
         [Required]
         public int ID { get; set; }
+
         [Required]
-        public string FCMToken { get; set; }
+        public string? FCMToken { get; set; }
     }
 }

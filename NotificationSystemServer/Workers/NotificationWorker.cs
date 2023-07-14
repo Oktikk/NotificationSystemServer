@@ -1,18 +1,17 @@
-﻿using FirebaseAdmin;
-using FirebaseAdmin.Messaging;
-using Google.Apis.Auth.OAuth2;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using NotificationSystemServer.Data;
-using System;
-using System.IO;
-using System.Threading.Tasks;
-
-namespace NotificationSystemServer.Workers
+﻿namespace NotificationSystemServer.Workers
 {
+    using System;
+    using System.IO;
+    using System.Threading.Tasks;
+    using FirebaseAdmin;
+    using FirebaseAdmin.Messaging;
+    using Google.Apis.Auth.OAuth2;
+    using Microsoft.Extensions.DependencyInjection;
+    using NotificationSystemServer.Data;
+
     public class NotificationWorker : BackgroundService
     {
-        private readonly IServiceProvider _serviceProvider;
+        private readonly IServiceProvider serviceProvider;
 
         public NotificationWorker(IServiceProvider serviceProvider)
         {
@@ -20,25 +19,24 @@ namespace NotificationSystemServer.Workers
             {
                 Credential = GoogleCredential.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "firebasekey.json")),
             });
-            _serviceProvider = serviceProvider;
+            this.serviceProvider = serviceProvider;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            while(!stoppingToken.IsCancellationRequested)
+            while (!stoppingToken.IsCancellationRequested)
             {
-                var deviceTokens = await GetDeviceTokensFromDatabase();
+                var deviceTokens = this.GetDeviceTokensFromDatabase();
 
-                await SendNotificationsToDeviceTokens(deviceTokens, RandomString(20), RandomString(40));
+                await this.SendNotificationsToDeviceTokens(deviceTokens, RandomString(20), RandomString(40));
 
                 await Task.Delay(TimeSpan.FromSeconds(30), stoppingToken);
             }
-
         }
 
-        private async Task<List<string>> GetDeviceTokensFromDatabase()
+        private List<string?> GetDeviceTokensFromDatabase()
         {
-            using (var scope = _serviceProvider.CreateScope())
+            using (var scope = this.serviceProvider.CreateScope())
             {
                 var scopedProvider = scope.ServiceProvider;
                 var dbContext = scopedProvider.GetRequiredService<ClientDbContext>();
@@ -47,7 +45,7 @@ namespace NotificationSystemServer.Workers
             }
         }
 
-        private async Task SendNotificationsToDeviceTokens(List<string> deviceTokens, string title, string body)
+        private async Task SendNotificationsToDeviceTokens(List<string?> deviceTokens, string title, string body)
         {
             var messaging = FirebaseMessaging.DefaultInstance;
 
@@ -59,9 +57,9 @@ namespace NotificationSystemServer.Workers
                     Notification = new Notification()
                     {
                         Title = title,
-                        Body = body
+                        Body = body,
                     },
-                    Token = token
+                    Token = token,
                 };
 
                 tasks.Add(messaging.SendAsync(message));

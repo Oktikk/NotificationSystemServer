@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "N9mpRTThIFgDJFcHrQKN2Kmi/LRLhAG0ckK4PuubNF2jYjFi2Y69CwA4fnJuc2iQpZxeqjUMPrgRY4K0o2gXRw==",
+  "dgSpecHash": "LU+NxPCMOW98rJW4LBWLCTKp9yrovK4jTygh2nDqryd9eXPPQ/gvxjTWinaOL0Q3P2sxcNaNgNhZrJTX9juJTQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\oktik\\source\\repos\\NotificationSystem\\NotificationSystemServer\\NotificationSystemServer\\NotificationSystemServer.csproj",
   "expectedPackageFiles": [
@@ -51,6 +51,7 @@
     "C:\\Users\\oktik\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\oktik\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\oktik\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\oktik\\.nuget\\packages\\stylecop.analyzers\\1.1.118\\stylecop.analyzers.1.1.118.nupkg.sha512",
     "C:\\Users\\oktik\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
     "C:\\Users\\oktik\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\oktik\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",

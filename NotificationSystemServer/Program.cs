@@ -1,10 +1,10 @@
-using NotificationSystemServer.Data;
-using Microsoft.EntityFrameworkCore;
-using NotificationSystemServer.Workers;
-using Google;
-
 namespace NotificationSystemServer
 {
+    using Google;
+    using Microsoft.EntityFrameworkCore;
+    using NotificationSystemServer.Data;
+    using NotificationSystemServer.Workers;
+
     public class Program
     {
         public static void Main(string[] args)
@@ -12,8 +12,8 @@ namespace NotificationSystemServer
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
             builder.Services.AddControllers();
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
@@ -40,7 +40,6 @@ namespace NotificationSystemServer
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
-
 
             app.MapControllers();
 

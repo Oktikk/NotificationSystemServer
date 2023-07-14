@@ -15,3 +15,7 @@ build_property.SupportLocalizedComponentNames =
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = C:\Users\oktik\source\repos\NotificationSystem\NotificationSystemServer\NotificationSystemServer
 build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/oktik/source/repos/NotificationSystem/NotificationSystemServer/NotificationSystemServer/stylecop.json]
+build_metadata.AdditionalFiles.TargetPath = 
+build_metadata.AdditionalFiles.CssScope = 

@@ -1,40 +1,38 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using NotificationSystemServer.Data;
-using NotificationSystemServer.Models;
-
-namespace NotificationSystemServer.Controllers
+﻿namespace NotificationSystemServer.Controllers
 {
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.EntityFrameworkCore;
+    using NotificationSystemServer.Data;
+    using NotificationSystemServer.Models;
+
     [Route("api/[controller]")]
     [ApiController]
     public class ConnectController : ControllerBase
     {
-        private readonly ClientDbContext _context;
+        private readonly ClientDbContext context;
 
-        public ConnectController(ClientDbContext context) => _context = context;
+        public ConnectController(ClientDbContext context) => this.context = context;
 
         [HttpPost]
-        public IActionResult Connect([FromBody] TokenData TokenData)
+        public IActionResult Connect([FromBody] TokenData tokenData)
         {
-            var existingClient = _context.Clients.FirstOrDefault(c => c.FCMToken == TokenData.FCMToken);
+            var existingClient = this.context.Clients.FirstOrDefault(c => c.FCMToken == tokenData.FCMToken);
             if (existingClient != null)
             {
-                return Ok();
+                return this.Ok();
             }
 
-            var newClient = new Client { FCMToken = TokenData.FCMToken };
-            _context.Clients.Add(newClient);
-            _context.SaveChanges();
+            var newClient = new Client { FCMToken = tokenData.FCMToken };
+            this.context.Clients.Add(newClient);
+            this.context.SaveChanges();
 
-            return Ok();
+            return this.Ok();
         }
 
         public class TokenData
         {
-            public string FCMToken { get; set; }
+            public string? FCMToken { get; set; }
         }
     }
-
-    
 }
