@@ -28,7 +28,7 @@ jobs:
         run: dotnet build --configuration Release --no-restore
 
       - name: Test
-        run: dotnet test ./NotificationSystemServer/Tests --no-build --verbosity normal
+        run: dotnet test ./NotificationSystemServer --no-build --verbosity normal
 
       - name: Lint code
         run: dotnet build --configuration Release --no-restore /p:AdditionalAnalyzers=StyleCop.Analyzers
