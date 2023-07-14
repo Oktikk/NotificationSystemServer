@@ -34,17 +34,6 @@
             }
         }
 
-        private List<string?> GetDeviceTokensFromDatabase()
-        {
-            using (var scope = this.serviceProvider.CreateScope())
-            {
-                var scopedProvider = scope.ServiceProvider;
-                var dbContext = scopedProvider.GetRequiredService<ClientDbContext>();
-                var devices = dbContext.Clients.Select(t => t.FCMToken).ToList();
-                return devices;
-            }
-        }
-
         private async Task SendNotificationsToDeviceTokens(List<string?> deviceTokens, string title, string body)
         {
             var messaging = FirebaseMessaging.DefaultInstance;
@@ -66,6 +55,17 @@
             }
 
             await Task.WhenAll(tasks);
+        }
+
+        private List<string?> GetDeviceTokensFromDatabase()
+        {
+            using (var scope = this.serviceProvider.CreateScope())
+            {
+                var scopedProvider = scope.ServiceProvider;
+                var dbContext = scopedProvider.GetRequiredService<ClientDbContext>();
+                var devices = dbContext.Clients.Select(t => t.FCMToken).ToList();
+                return devices;
+            }
         }
 
         private static Random random = new Random();
