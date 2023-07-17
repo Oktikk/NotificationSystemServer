@@ -28,7 +28,7 @@ jobs:
         run: dotnet build --configuration Release --no-restore
 
       - name: Test
-        run: dotnet test --logger "console;verbosity=detailed"
+        run: dotnet test
 
       - name: Lint code
         run: dotnet build --configuration Release --no-restore /p:AdditionalAnalyzers=StyleCop.Analyzers
