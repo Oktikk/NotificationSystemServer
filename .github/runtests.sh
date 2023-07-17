@@ -1,7 +1,7 @@
 #!/bin/bash
 
 FAILURES=0
-TEST_PROJECTS=$(find test -name "NotificationSystemServer.*.Tests")
+TEST_PROJECTS=$(find test -name "NotificationSystemServer.Tests.*")
 
 for PROJECT in $TEST_PROJECTS
 do 
