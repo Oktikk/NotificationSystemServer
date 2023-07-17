@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <AssemblyName>$(MSBuildProjectName)</AssemblyName>
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
-    <PublishWithAspNetCoreTargetManifest>true</PublishWithAspNetCoreTargetManifest>
+    <PublishWithAspNetCoreTargetManifest>False</PublishWithAspNetCoreTargetManifest>
   </PropertyGroup>
 
   <ItemGroup>
