@@ -397,3 +397,7 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 .vs
+
+# Firebase key
+firebasekey.json
+NotificationSystemServer/firebasekey.json
