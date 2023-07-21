@@ -400,3 +400,4 @@ FodyWeavers.xsd
 
 # Firebase key
 firebasekey.json
+NotificationSystemServer/firebasekey.json
