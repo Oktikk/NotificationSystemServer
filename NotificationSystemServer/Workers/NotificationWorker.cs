@@ -28,13 +28,13 @@
             {
                 var deviceTokens = this.GetDeviceTokensFromDatabase();
 
-                await this.SendNotificationsToDeviceTokens(deviceTokens, RandomString(20), RandomString(40));
+                await this.SendNotificationsToDeviceTokens(deviceTokens, GetRandomNotificationType());
 
                 await Task.Delay(TimeSpan.FromSeconds(30), stoppingToken);
             }
         }
 
-        private async Task SendNotificationsToDeviceTokens(List<string?> deviceTokens, string title, string body)
+        private async Task SendNotificationsToDeviceTokens(List<string?> deviceTokens, Notification notification)
         {
             var messaging = FirebaseMessaging.DefaultInstance;
 
@@ -43,11 +43,7 @@
             {
                 var message = new Message()
                 {
-                    Notification = new Notification()
-                    {
-                        Title = title,
-                        Body = body,
-                    },
+                    Notification = notification,
                     Token = token,
                 };
 
@@ -72,9 +68,34 @@
 
         public static string RandomString(int length)
         {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            const string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             return new string(Enumerable.Repeat(chars, length)
                 .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+        public static Notification GetRandomNotificationType()
+        {
+            int notificationType = random.Next(0, 2);
+            string title = string.Empty;
+            string body = string.Empty;
+
+            switch (notificationType)
+            {
+                case 0:
+                    title = "Clipboard";
+                    body = RandomString(40);
+                    break;
+                case 1:
+                    title = RandomString(20);
+                    body = RandomString(40);
+                    break;
+            }
+
+            return new Notification()
+            {
+                Title = title,
+                Body = body,
+            };
         }
     }
 }
